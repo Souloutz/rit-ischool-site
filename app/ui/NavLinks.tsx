@@ -27,10 +27,10 @@ export default function NavLinks() {
         className="w-full md:w-64 bg-white dark:bg-zinc-900 dark:border-zinc-800 border-b md:border-b-0 md:border-r flex flex-col justify-between shrink-0 h-auto md:h-screen sticky top-0 z-50"
       >
         <div className="p-6">
-          <div className="flex items-center gap-3 mb-8 text-[#F76902]">
+          <Link href="/" className="flex items-center gap-3 mb-8 text-[#F76902]">
             <Hexagon size={32} className="fill-[#F76902]/20" />
             <h1 className="text-2xl font-black tracking-tighter uppercase">iSchool</h1>
-          </div>
+          </Link>
           
           <ul className="flex md:flex-col gap-2 overflow-x-auto md:overflow-visible pb-2 md:pb-0 scrollbar-hide">
             {navLinks.map(({ href, label, icon: Icon }) => (

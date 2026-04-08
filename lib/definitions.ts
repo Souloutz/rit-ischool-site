@@ -1,3 +1,5 @@
+import z from "zod";
+
 /**
  * RIT School of Information Site API Reference
  * 
@@ -5,153 +7,173 @@
  */
 
 // https://ischool.gccis.rit.edu/api/about/
-export interface About {
-  title: string;
-  description: string;
-  quote: string;
-  quoteAuthor: string;
-}
+export const AboutSchema = z.object({
+  title: z.string(),
+  description: z.string(),
+  quote: z.string(),
+  quoteAuthor: z.string()
+});
+
+
+export type About = z.infer<typeof AboutSchema>;
 
 // https://ischool.gccis.rit.edu/api/degrees/
-export interface Degrees {
-  undergraduate: Undergraduate[];
-  graduate: Graduate[];
-}
+export const UndergraduateSchema = z.object({
+  degreeName: z.string(),
+  title: z.string(),
+  description: z.string(),
+  concentrations: z.array(z.string())
+});
 
-export interface Undergraduate {
-  degreeName: string;
-  title: string;
-  description: string;
-  concentrations: string[];
-}
+export type Undergraduate = z.infer<typeof UndergraduateSchema>;
 
-export interface Graduate {
-  degreeName: string;
-  title?: string;
-  description?: string;
-  concentrations?: string[];
-  availableCertificates?: string[];
-}
+export const GraduateSchema = z.object({
+  degreeName: z.string(),
+  title: z.string().optional(),
+  description: z.string().optional(),
+  concentrations: z.array(z.string()).optional(),
+  availableCertificates: z.array(z.string()).optional()
+});
+
+export type Graduate = z.infer<typeof GraduateSchema>;
+
+export const DegreesSchema = z.object({
+  undergraduate: z.array(UndergraduateSchema),
+  graduate: z.array(GraduateSchema)
+});
+
+export type Degrees = z.infer<typeof DegreesSchema>;
+
 
 // https://ischool.gccis.rit.edu/api/minors/
-export interface Minors {
-  UgMinors: UgMinor[]
-}
+export const UndergraduateMinorSchema = z.object({
+  name: z.string(),
+  title: z.string(),
+  description: z.string(),
+  courses: z.array(z.string()),
+  note: z.string()
+});
 
-export interface UgMinor {
-  name: string
-  title: string
-  description: string
-  courses: string[]
-  note: string
-}
+export type UndergraduateMinor = z.infer<typeof UndergraduateMinorSchema>;
+
+export const MinorsSchema = z.object({
+  UgMinors: z.array(UndergraduateMinorSchema)
+});
+
+export type Minors = z.infer<typeof MinorsSchema>;
 
 // https://ischool.gccis.rit.edu/api/employment/
-export interface Employment {
-  introduction: Introduction
-  degreeStatistics: DegreeStatistics
-  employers: Employers
-  careers: Careers
-  coopTable: CoopTable
-  employmentTable: EmploymentTable
-}
+const ContentSchema = z.object({
+  title: z.string(),
+  description: z.string()
+});
 
-export interface Introduction {
-  title: string
-  content: Content[]
-}
+const IntroductionSchema = z.object({
+  title: z.string(),
+  content: z.array(ContentSchema)
+});
 
-export interface Content {
-  title: string
-  description: string
-}
+const StatisticSchema = z.object({
+  value: z.string(),
+  description: z.string()
+});
 
-export interface DegreeStatistics {
-  title: string
-  statistics: Statistic[]
-}
+const DegreeStatisticsSchema = z.object({
+  title: z.string(),
+  statistics: z.array(StatisticSchema)
+});
 
-export interface Statistic {
-  value: string
-  description: string
-}
+const EmployersSchema = z.object({
+  title: z.string(),
+  employerNames: z.array(z.string())
+});
 
-export interface Employers {
-  title: string
-  employerNames: string[]
-}
+const CareerSchema = z.object({
+  title: z.string(),
+  careerNames: z.array(z.string())
+});
 
-export interface Careers {
-  title: string
-  careerNames: string[]
-}
+const CoopInformationSchema = z.object({
+  employer: z.string(),
+  degree: z.string(),
+  city: z.string(),
+  term: z.string()
+});
 
-export interface CoopTable {
-  title: string
-  coopInformation: CoopInformation[]
-}
+const CoopTableSchema = z.object({
+  title: z.string(),
+  coopInformation: z.array(CoopInformationSchema)
+});
 
-export interface CoopInformation {
-  employer: string
-  degree: string
-  city: string
-  term: string
-}
+const ProfessionalEmploymentInformationSchema = z.object({
+  employer: z.string(),
+  degree: z.string(),
+  city: z.string(),
+  title: z.string(),
+  startDate: z.string()
+});
 
-export interface EmploymentTable {
-  title: string
-  professionalEmploymentInformation: ProfessionalEmploymentInformation[]
-}
+const EmploymentTableSchema = z.object({
+  title: z.string(),
+  professionalEmploymentInformation: z.array(ProfessionalEmploymentInformationSchema)
+});
 
-export interface ProfessionalEmploymentInformation {
-  employer: string
-  degree: string
-  city: string
-  title: string
-  startDate: string
-}
+export const EmploymentSchema = z.object({
+  introduction: IntroductionSchema,
+  degreeStatistics: DegreeStatisticsSchema,
+  employers: EmployersSchema,
+  careers: CareerSchema,
+  coopTable: CoopTableSchema,
+  employmentTable: EmploymentTableSchema
+});
+
+export type Employment = z.infer<typeof EmploymentSchema>;
 
 // https://ischool.gccis.rit.edu/api/people/
-export interface People {
-  title: string
-  subTitle: string
-  faculty: Faculty[]
-  staff: Staff[]
-}
+const FacultySchema = z.object({
+  username: z.string(),
+  name: z.string(),
+  tagline: z.string(),
+  imagePath: z.string(),
+  title: z.string(),
+  interestArea: z.string(),
+  office: z.string().optional(),
+  website: z.string(),
+  phone: z.string().optional(),
+  email: z.string(),
+  twitter: z.string().optional(),
+  facebook: z.string().optional()
+});
 
-export interface Faculty {
-  username: string
-  name: string
-  tagline: string
-  imagePath: string
-  title: string
-  interestArea: string
-  office?: string
-  website: string
-  phone?: string
-  email: string
-  twitter?: string
-  facebook?: string
-}
+const StaffSchema = z.object({
+  username: z.string(),
+  name: z.string(),
+  tagline: z.string(),
+  imagePath: z.string(),
+  title: z.string(),
+  interestArea: z.string(),
+  office: z.string().optional(),
+  website: z.string(),
+  phone: z.string().optional(),
+  email: z.string(),
+  twitter: z.string().optional(),
+  facebook: z.string().optional()
+});
 
-export interface Staff {
-  username: string
-  name: string
-  tagline: string
-  imagePath: string
-  title: string
-  interestArea: string
-  office?: string
-  website: string
-  phone?: string
-  email: string
-  twitter?: string
-  facebook: string
-}
+export const PeopleSchema = z.object({
+  title: z.string(),
+  subTitle: z.string(),
+  faculty: z.array(FacultySchema),
+  staff: z.array(StaffSchema)
+});
+
+export type People = z.infer<typeof PeopleSchema>;
 
 // https://ischool.gccis.rit.edu/api/course/
-export interface Course {
-  courseID: string
-  title: string
-  description: string
-}
+export const CourseSchema = z.object({
+  courseID: z.string(),
+  title: z.string(),
+  description: z.string()
+});
+
+export type Course = z.infer<typeof CourseSchema>;

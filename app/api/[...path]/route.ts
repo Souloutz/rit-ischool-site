@@ -1,6 +1,10 @@
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 
-const BASE_URL = "https://ischool.gccis.rit.edu/api/"
+/**
+ * Next.js Server APIs for Handling CORS
+ */
+
+const BASE_URL = process.env.BASE_URL!;
 
 export async function GET(
   req: NextRequest,
@@ -21,7 +25,7 @@ export async function GET(
       );
     }
 
-    const data = await upstream.json();
+    const data: unknown = await upstream.json();
     return NextResponse.json(data, { status: 200 });
   } catch (e) {
     console.error(e);

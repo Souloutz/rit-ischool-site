@@ -8,7 +8,7 @@ export default function ToggleThemeButton() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <Toggle aria-label="Toggle theme" size="lg" variant="outline" className="bg-secondary border border-primary" onClick={toggleTheme}>
+    <Toggle aria-label="Toggle theme" size="lg" variant="outline" className="bg-secondary border border-primary rounded-3xl " onClick={toggleTheme}>
       {theme === "light" ? <Moon /> : <Sun />}
     </Toggle>
   )

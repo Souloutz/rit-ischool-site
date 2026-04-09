@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 import ThemeProvider from "@/app/hooks/useTheme";
 import ToggleThemeButton from "@/app/ui/ToggleThemeButton";
-import { inter } from "./fonts";
-import NavLinks from "./ui/NavLinks";
-import { Copyright } from "lucide-react";
+import { roboto } from "./fonts";
+import NavLinks from "@/app/ui/NavLinks";
+import TopBanner from "@/app/ui/TopBanner";
+import MainHeader from "@/app/ui/MainHeader";
+import Footer from "@/app/ui/Footer";
 
 export const metadata: Metadata = {
   title: "iSchool Website",
@@ -20,27 +22,24 @@ export default function RootLayout({
     <html lang="en">
       <ThemeProvider>
         <body
-          className={`${inter.variable} antialiased`}
+          className={`${roboto.variable} antialiased`}
         >
-          <div className="min-h-screen bg-gray-50 dark:bg-zinc-950 text-zinc-100 selection:bg-[#F76902] selection:text-white font-sans flex flex-col md:flex-row overflow-hidden">
+          <div className="min-h-screen bg-background text-foreground flex flex-col selection:bg-primary selection:text-white">
+            <TopBanner />
+            <MainHeader />
             <NavLinks />
-            <main className="flex-1 h-screen overflow-y-auto relative scroll-smooth bg-opacity-50 dark:bg-zinc-950 dark:bg-[url('https://grainy-gradients.vercel.app/noise.svg')]">
-              <div className="max-w-7xl mx-auto w-full h-full flex flex-col">
-                <div className="flex-1 h-full">
-                  {children}
-                </div>
+
+            <main className="flex flex-1 flex-col relative w-full overflow-hidden">
+              <div className="w-full flex-1">
+                {children}
               </div>
             </main>
 
-            {/* Mobile Footer */}
-            <footer className="md:hidden flex flex-row justify-center items-center gap-1 border-t p-6 text-center text-xs bg-indigo-50 text-zinc-600 dark:text-zinc-400 mt-auto dark:border-zinc-900 dark:bg-zinc-900">
-              <p className="flex flex-row items-center gap-1"><Copyright width={16}/> {new Date().getFullYear()}</p>
-              <p>RIT GCCIS School of Information</p>
-            </footer>
-          </div>
+            <Footer />
 
-          <div className="absolute bottom-6 right-6 z-50">
-            <ToggleThemeButton />
+            <div className="fixed bottom-4 right-4 z-50">
+              <ToggleThemeButton />
+            </div>
           </div>
         </body>
       </ThemeProvider>

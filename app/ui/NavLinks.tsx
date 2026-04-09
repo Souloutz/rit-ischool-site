@@ -20,7 +20,7 @@ export default function NavLinks() {
   return (
     <>
       {/* Sidebar Navigation (Desktop) / Topbar (Mobile) */}
-      <motion.nav 
+      {/* <motion.nav 
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
@@ -58,7 +58,38 @@ export default function NavLinks() {
           <p className="flex flex-row items-center gap-1"><Copyright width={16}/> {new Date().getFullYear()} RIT GCCIS</p>
           <p>School of Information</p>
         </div>
-      </motion.nav>
+      </motion.nav> */}
+
+      <nav className="border-t border-border bg-background/95 backdrop-blur-md sticky top-0 z-50">
+        <div className="max-w-350 mx-auto px-4">
+          <ul className="flex flex-wrap items-center justify-center md:justify-start gap-1 md:gap-8 py-3">
+            {navLinks.map(({ href, label, icon: Icon }) => (
+              <li key={href}>
+                <Link
+                  href={href}
+                  className={
+                    cn(
+                      "text-sm font-bold tracking-wide px-2 md:px-0 py-2 md:py-4 transition-colors relative flex items-center gap-1 hover:text-primary",
+                      path === href ? "text-primary" : "text-muted-foreground hover:text-foreground"
+                    )
+                  }
+                >
+                  {label}
+
+                  {path === href &&
+                    <motion.div
+                      layoutId="nav-indicator"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary hidden md:block"
+                      initial={false}
+                      transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                    />
+                  }
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
     </>
   )
 }

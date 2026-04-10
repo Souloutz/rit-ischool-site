@@ -2,17 +2,17 @@ import { GraduationCap, Code, Server, Smartphone, BookMarked, Cpu, Network } fro
 import { DegreesSchema } from "@/lib/definitions";
 import { fetchInitialData } from "@/lib/data";
 import { MotionDiv } from "../ui/Motion";
+import DataFetchError from "@/app/ui/DataFetchError";
+
 
 export default async function Page() {
-  const { success, data, error } = DegreesSchema.safeParse(await fetchInitialData("/degrees"))
+  const { success, data, error } = DegreesSchema.safeParse(await fetchInitialData("/degrees"));
   const icons = [Code, Server, Smartphone, Cpu, BookMarked, Network];
 
   if (!success) {
     console.error("Failed to parse degrees data:", error);
     return (
-      <div className="flex items-center justify-center h-full min-h-screen">
-        <p className="text-red-500 text-lg">Failed to load data. Please try again later.</p>
-      </div>
+      <DataFetchError />
     );
   }
 

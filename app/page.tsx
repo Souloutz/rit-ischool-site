@@ -2,6 +2,8 @@ import Image from "next/image";
 import { fetchInitialData } from "@/lib/data";
 import { AboutSchema } from "@/lib/definitions";
 import { MotionDiv, MotionH1 } from "@/app/ui/Motion";
+import DataFetchError from "@/app/ui/DataFetchError";
+
 
 export default async function Home() {
   const { success, data, error} = AboutSchema.safeParse(await fetchInitialData("/about"));
@@ -9,9 +11,7 @@ export default async function Home() {
   if (!success) {
     console.error("Failed to fetch '/about' data:", error);
     return (
-      <div className="flex items-center justify-center h-full min-h-screen">
-        <p className="text-red-500 text-lg">Failed to load data. Please try again later.</p>
-      </div>
+      <DataFetchError />
     );
   }
 

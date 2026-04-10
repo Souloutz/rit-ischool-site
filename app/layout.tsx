@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ThemeProvider from "@/app/hooks/useTheme";
-import ToggleThemeButton from "@/app/ui/ToggleThemeButton";
+import ToggleThemeButton from "@/components/ToggleThemeButton";
 import { roboto } from "./fonts";
-import NavLinks from "@/app/ui/NavLinks";
-import TopBanner from "@/app/ui/TopBanner";
-import MainHeader from "@/app/ui/MainHeader";
-import Footer from "@/app/ui/Footer";
+import NavLinks from "@/components/NavLinks";
+import TopBanner from "@/components/TopBanner";
+import MainHeader from "@/components/MainHeader";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "iSchool Website",

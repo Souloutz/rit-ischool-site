@@ -1,8 +1,8 @@
 import { GraduationCap, Code, Server, Smartphone, BookMarked, Cpu, Network } from "lucide-react";
 import { DegreesSchema } from "@/lib/definitions";
 import { fetchInitialData } from "@/lib/data";
-import { MotionDiv } from "../ui/Motion";
-import DataFetchError from "@/app/ui/DataFetchError";
+import { MotionDiv } from "@/components/Motion";
+import DataFetchError from "@/components/DataFetchError";
 
 
 export default async function Page() {

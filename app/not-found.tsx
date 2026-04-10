@@ -1,5 +1,5 @@
 import { FrownIcon } from "lucide-react";
-import { MotionDiv } from "@/app/ui/Motion";
+import { MotionDiv } from "@/components/Motion";
 
 export default function NotFound() {
   return (

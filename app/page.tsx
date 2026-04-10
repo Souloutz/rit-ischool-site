@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { fetchInitialData } from "@/lib/data";
 import { AboutSchema } from "@/lib/definitions";
-import { MotionDiv, MotionH1 } from "@/app/ui/Motion";
-import DataFetchError from "@/app/ui/DataFetchError";
+import { MotionDiv, MotionH1 } from "@/components/Motion";
+import DataFetchError from "@/components/DataFetchError";
 
 
 export default async function Home() {

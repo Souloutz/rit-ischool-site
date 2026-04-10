@@ -16,13 +16,13 @@ export default async function Page() {
   }
   
   return (
-    <MotionDiv
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="p-6 md:p-12 space-y-16 max-w-7xl mx-auto h-full flex flex-col"
-    >
-      <div className="space-y-4">
+    <div className="p-6 md:p-12 space-y-16 max-w-7xl mx-auto h-full flex flex-col">
+      <MotionDiv
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="space-y-4"
+      >
         <h1 className="text-4xl md:text-4xl font-bold tracking-tight text-foreground flex items-center gap-4">
           <UsersRound className="w-10 h-10 text-primary" />
           Faculty and Staff
@@ -31,10 +31,10 @@ export default async function Page() {
         <p className="text-muted-foreground text-lg max-w-2xl">
           Explore our top faculty and staff members who are dedicated to our students&apos; education and success.
         </p>
-      </div>
+      </MotionDiv>
 
       <PeopleDashboard data={data} />
-    </MotionDiv>
+    </div>
   );
 }
 //   const [data, setData] = useState<any>(null);

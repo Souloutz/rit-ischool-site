@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { Filter } from "lucide-react";
+import { MotionDiv } from "@/components/Motion";
 
 export default function Filters({
   activeTab,
@@ -9,7 +10,12 @@ export default function Filters({
   setActiveTab: (tab: "faculty" | "staff") => void;
 }) {
   return (
-    <div className="w-full md:w-64 shrink-0 space-y-4">
+    <MotionDiv
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.2, duration: 0.5 }}
+      className="w-full md:w-64 shrink-0 space-y-4"
+    >
       <div className="flex items-center gap-3 text-muted-foreground mb-6 font-bold tracking-widest text-sm uppercase">
         <Filter size={16} /> Filter by Group
       </div>
@@ -29,6 +35,6 @@ export default function Filters({
           </button>
         ))}
       </div>
-    </div>
+    </MotionDiv>
   );
 }

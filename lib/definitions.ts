@@ -137,12 +137,12 @@ const FacultySchema = z.object({
   imagePath: z.string(),
   title: z.string(),
   interestArea: z.string(),
-  office: z.string().optional(),
-  website: z.string(),
-  phone: z.string().optional(),
-  email: z.string(),
-  twitter: z.string().optional(),
-  facebook: z.string().optional()
+  office: z.string().nullable(),
+  website: z.string().nullable(),
+  phone: z.string().nullable(),
+  email: z.string().nullable(),
+  twitter: z.string().nullable(),
+  facebook: z.string().nullable()
 });
 
 const StaffSchema = z.object({
@@ -152,12 +152,12 @@ const StaffSchema = z.object({
   imagePath: z.string(),
   title: z.string(),
   interestArea: z.string(),
-  office: z.string().optional(),
-  website: z.string(),
-  phone: z.string().optional(),
-  email: z.string(),
-  twitter: z.string().optional(),
-  facebook: z.string().optional()
+  office: z.string().nullable(),
+  website: z.string().nullable(),
+  phone: z.string().nullable(),
+  email: z.string().nullable(),
+  twitter: z.string().nullable(),
+  facebook: z.string().nullable()
 });
 
 export const PeopleSchema = z.object({

@@ -21,10 +21,10 @@ export default async function Home() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="pb-16 md:pt-4 md:px-12 space-y-16"
+        className="pb-16 md:pt-4 mx-auto space-y-16 max-w-350"
       >
         {/* Hero Section */}
-        <div className="relative h-[60vh] rounded-2xl border-2 border-accent overflow-hidden flex items-end p-8 md:p-12 shadow-lg group">
+        <div className="relative h-[60vh] rounded-2xl border-2 border-accent overflow-hidden flex items-end p-8 md:p-12 shadow-xl group">
           <div className="absolute inset-0 z-0">
             <Image 
               src="/campus.jpg" 

@@ -145,6 +145,8 @@ const FacultySchema = z.object({
   facebook: z.string().nullable()
 });
 
+export type Faculty = z.infer<typeof FacultySchema>;
+
 const StaffSchema = z.object({
   username: z.string(),
   name: z.string(),
@@ -159,6 +161,8 @@ const StaffSchema = z.object({
   twitter: z.string().nullable(),
   facebook: z.string().nullable()
 });
+
+export type Staff = z.infer<typeof StaffSchema>;
 
 export const PeopleSchema = z.object({
   title: z.string(),

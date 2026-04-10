@@ -37,7 +37,7 @@ export default function NavLinks() {
                   {path === href &&
                     <motion.div
                       layoutId="nav-indicator"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary hidden md:block"
+                      className="absolute bottom-1.5 left-0 right-0 h-0.5 bg-primary hidden md:block"
                       initial={false}
                       transition={{ type: "spring", stiffness: 500, damping: 30 }}
                     />

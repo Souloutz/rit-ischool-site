@@ -9,8 +9,8 @@ export default function Footer() {
               className="flex items-center gap-3"
             >
               <span className="text-5xl font-serif font-normal tracking-wide">RIT</span>
-              <div className="w-px h-10 bg-zinc-500" />
-              <div className="flex flex-col text-xl font-semibold leading-tight text-zinc-200">
+              <div className="w-px h-12 bg-zinc-500" />
+              <div className="flex flex-col text-xl font-semibold leading-5 tracking-tight text-zinc-200">
                 <span>Rochester Institute</span>
                 <span>of Technology</span>
               </div>

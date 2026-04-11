@@ -17,7 +17,7 @@ export default function Filters({
       className="w-full md:w-64 shrink-0 space-y-4"
     >
       <div className="flex items-center gap-3 text-muted-foreground mb-6 font-bold tracking-widest text-sm uppercase">
-        <Filter size={16} /> Filter by Group
+        <Filter size={16} /> Filter
       </div>
       <div className="flex md:flex-col gap-3 overflow-x-auto pb-4 md:pb-0">
         {["faculty", "staff"].map((tab) => (

@@ -2,6 +2,9 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+@plugin "tailwindcss-react-aria-components";
+@plugin "tailwindcss-animate";
+
 /* Creates dark: utility prefix */
 @custom-variant dark (&:is(.dark *));
 
@@ -197,8 +200,6 @@
     line-height: 1.5;
   }
 }
-
-
 
 /* Override Tailwind default behavior/values */
 /* @theme inline {

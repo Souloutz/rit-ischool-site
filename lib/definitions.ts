@@ -181,3 +181,5 @@ export const CourseSchema = z.object({
 });
 
 export type Course = z.infer<typeof CourseSchema>;
+
+export const CourseListSchema = z.array(CourseSchema);

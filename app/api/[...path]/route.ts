@@ -13,9 +13,10 @@ export async function GET(
   const { path } = await params; // may have multiple nested paths
   const { search } = req.nextUrl; // preserves search params
   const targetPath = path.join("/");
-  const targetUrl = `${BASE_URL}/${targetPath}${search}`;
+  const targetUrl = `${BASE_URL}${targetPath}${search}`;
 
   try {
+    console.log("Proxying request to:", targetUrl);
     const upstream = await fetch(targetUrl, { cache: "no-store" });
 
     if (!upstream.ok) {
@@ -26,6 +27,7 @@ export async function GET(
     }
 
     const data: unknown = await upstream.json();
+    console.log("Received data from upstream:", data);
     return NextResponse.json(data, { status: 200 });
   } catch (e) {
     console.error(e);

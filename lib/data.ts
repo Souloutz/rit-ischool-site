@@ -1,5 +1,3 @@
-import { Course } from "./definitions";
-
 const BASE_URL = process.env.BASE_URL!;
 
 export const fetcher = (path: string) => fetch(path).then((res) => res.json());

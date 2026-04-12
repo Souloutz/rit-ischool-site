@@ -2,12 +2,14 @@ import { type Course } from "@/lib/definitions";
 import { MotionDiv } from "@/components/Motion";
 import { Loader2 } from "lucide-react";
 
-export default function Courses({
+export default function ExpandedCourses ({
   isLoading,
-  courses
+  courses,
+  onCourseSelect
 }: {
   isLoading: boolean,
-  courses: Course[]
+  courses: Course[],
+  onCourseSelect: (course: Course) => void
 }) {
   return (
     <MotionDiv
@@ -34,7 +36,7 @@ export default function Courses({
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-card rounded-none p-4 border border-border shadow-sm"
+                className="bg-card rounded-none p-4 border border-border hover:border-primary shadow-sm"
               >
                 <div className="flex items-center gap-3 mb-2">
                   <span className="text-xs font-bold bg-muted text-muted-foreground px-2 py-1 rounded">

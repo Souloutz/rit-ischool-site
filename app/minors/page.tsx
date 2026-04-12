@@ -3,7 +3,7 @@ import { MinorsSchema } from "@/lib/definitions";
 import DataFetchError from "@/components/DataFetchError";
 import { MotionDiv } from "@/components/Motion";
 import { BookOpen } from "lucide-react";
-import MinorCard from "./MinorCard";
+import MinorDashboard from "./MinorDashboard";
 
 export default async function Page() {
   const { success, data, error } = MinorsSchema.safeParse(await fetchInitialData("/minors"));
@@ -33,7 +33,7 @@ export default async function Page() {
         </p>
       </div>
 
-      <MinorCard data={data} />
+      <MinorDashboard data={data} />
     </MotionDiv>
   );
 }

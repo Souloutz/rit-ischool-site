@@ -15,20 +15,22 @@ export default function PeopleDashboard({
 }) {
   const [activeTab, setActiveTab] = useState<"faculty" | "staff">("faculty");
   const [selectedPerson, setSelectedPerson] = useState<Faculty | Staff | null>(null);
+  const [searchTerm, setSearchTerm] = useState<string>("");
 
   const peopleList = activeTab === "faculty" ? data?.faculty : data?.staff;
 
   return (
     <>
-      <div className="flex flex-col md:flex-row gap-8 flex-1">
+      <div className="relative flex flex-col md:flex-row gap-8 flex-1">
         <Filters 
           activeTab={activeTab}
           setActiveTab={setActiveTab}
+          handleSearch={setSearchTerm}
         />
 
         <div className="flex-1 min-h-125">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {peopleList?.map((person, index) => (
+            {peopleList?.filter((person) => person.name.toLowerCase().includes(searchTerm.toLowerCase())).map((person, index) => (
               <motion.button
                 key={person.username || index}
                 onClick={() => setSelectedPerson(person)}

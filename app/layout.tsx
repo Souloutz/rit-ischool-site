@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <ThemeProvider>
         <body
-          className={`${roboto.variable} antialiased`}
+          className={`${roboto.className} ${roboto.variable} antialiased`}
         >
           <ModalProvider>
             <div className="min-h-screen bg-background text-foreground flex flex-col selection:bg-primary selection:text-white">
@@ -33,7 +33,7 @@ export default function RootLayout({
               <MainHeader />
               <NavLinks />
 
-              <main className="flex flex-1 flex-col relative w-full overflow-hidden">
+              <main className="flex flex-1 flex-col relative w-full">
                 <div className="w-full flex-1">
                   {children}
                 </div>

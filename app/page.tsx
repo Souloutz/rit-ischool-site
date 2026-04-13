@@ -58,7 +58,7 @@ export default async function Home() {
         </div>
 
         {/* Description Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 md:py-8 items-start max-w-6xl mx-auto relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 md:py-8 items-start max-w-6xl px-8 lg:px-4 mx-auto relative z-10">
           <MotionDiv
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -1,7 +1,7 @@
 export default function MainHeader() {
   return (
     <header className="w-full bg-background border-b border-border">
-      <div className="max-w-350 mx-auto px-4 md:px-0 py-6 md:py-6 flex flex-col md:flex-row items-between justify-between gap-6">
+      <div className="max-w-350 mx-auto px-4 lg:px-2 py-6 md:py-6 flex flex-col md:flex-row items-between justify-between gap-6">
         <a href="https://www.rit.edu" className="flex justify-center items-center gap-4">
           <span className="text-5xl font-serif font-normal text-primary tracking-wide">RIT</span>
           <div className="w-px h-12 bg-border hidden md:block" />

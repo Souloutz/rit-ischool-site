@@ -23,7 +23,7 @@ export default async function Page() {
         transition={{ duration: 0.5 }}
         className="space-y-4"
       >
-        <h1 className="text-4xl md:text-4xl font-bold tracking-tight text-foreground flex items-center gap-4">
+        <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground flex items-center gap-4">
           <UsersRound className="w-10 h-10 text-primary" />
           Faculty and Staff
         </h1>

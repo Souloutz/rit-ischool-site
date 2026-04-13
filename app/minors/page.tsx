@@ -23,7 +23,7 @@ export default async function Page() {
       className="p-6 md:p-12 space-y-16 max-w-7xl mx-auto"
     >
       <div className="space-y-4">
-        <h1 className="text-4xl md:text-4xl font-bold tracking-tight text-foreground flex items-center gap-4">
+        <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground flex items-center gap-4">
           <BookOpen className="w-12 h-12 text-primary" />
           School of Information Minors
         </h1>

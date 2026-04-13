@@ -1,14 +1,25 @@
-import { type Course } from '@/lib/definitions';
+import { CourseSchema, type Course } from '@/lib/definitions';
 import { MotionDiv } from '@/components/Motion';
 import { X } from 'lucide-react';
 
 export default function CourseModal({
   course,
-  onClose
+  onClose,
+  handleOpen
 }: {
   course: Course,
-  onClose: () => void
+  onClose: () => void,
+  handleOpen: (course: Course) => void
 }) {
+  const parts = course.description.split(/([A-Z]{4}-[0-9]{3})/);
+
+  const handleOpenNested = async (course: string) => {
+    const courseReponse = await fetch(`api/course/courseID=${course}`);
+    const parsed = CourseSchema.parse(await courseReponse.json());
+
+    handleOpen(parsed);
+  };
+
   return (
     <MotionDiv
       initial={{ scale: 0.95, opacity: 0, y: 20 }}
@@ -41,37 +52,21 @@ export default function CourseModal({
         
         <div className="flex flex-col gap-4 md:flex md:flex-row md:gap-12">
           <div className="space-y-4">
-            <p>{course.description}</p>
-            {/* {selectedPerson.interestArea && (
-              <div className="flex gap-4 items-start group">
-                <Tag className="w-5 h-5 text-muted-foreground mt-1 shrink-0 group-hover:text-primary transition-colors" />
-                <div>
-                  <div className="text-xs text-muted-foreground uppercase font-bold tracking-widest mb-1">Interest Area</div>
-                  <div className="flex flex-col flex-wrap gap-2 md:flex-row text-foreground mt-2">
-                    {selectedPerson.interestArea.split(" ").map((word) => {
-                      return (
-                        <span key={word} className="inline-block bg-muted text-secondary-foreground px-3.5 py-1 rounded-full text-xs font-medium border border-border">
-                          {word.toUpperCase()}
-                        </span>
-                      )
-                    })}
-                  </div>
-                </div>
-              </div>
-            )} */}
-            
-            {/* {selectedPerson.email && (
-              <div className="flex gap-4 items-start group">
-                <Mail className="w-5 h-5 text-muted-foreground mt-1 shrink-0 group-hover:text-primary transition-colors" />
-                <div>
-                  <div className="text-xs text-muted-foreground uppercase font-bold tracking-widest mb-1">Email</div>
-                  <a href={`mailto:${selectedPerson.email}`} className="text-foreground hover:text-primary transition-colors underline decoration-border underline-offset-4">
-                    {selectedPerson.email}
+            <p>
+              {parts[0]}
+              {parts.slice(1, parts.length - 1).map((prerequiste, index) => 
+                (
+                  <a 
+                    key={index}
+                    onClick={() => handleOpenNested(prerequiste)}
+                    className="text-foreground hover:text-primary transition-colors underline decoration-border underline-offset-4"
+                  >
+                    {prerequiste}
                   </a>
-                </div>
-              </div>
-            )} */}
-
+                )
+              )}
+              {parts[parts.length - 1]}
+            </p>
           </div>
         </div>
         </div>

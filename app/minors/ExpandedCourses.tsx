@@ -18,6 +18,7 @@ export default function ExpandedCourses ({
       <CourseModal
         course={course}
         onClose={popModal}
+        handleOpen={handleOpen}
       />
     );
   };

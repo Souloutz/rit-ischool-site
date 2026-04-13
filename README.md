@@ -1,6 +1,6 @@
 ## ISTE-340 React Project
 
-- Web application created to consumed the iSchool web api and provided detailed information accordingly. Designed to reflect and elevate the current official RIT branding and website.
+- Web application created to consume the Golisano College of Computing and Information's iSchool (School of Information) API and provide detailed information accordingly about degrees, minors, faculty, etc. Designed to reflect and elevate the current official RIT branding and website.
 
 <https://ischool.gccis.rit.edu/api/employment/careers>
 

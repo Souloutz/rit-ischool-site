@@ -12,7 +12,6 @@ export default function MinorDashboard({
   const [expandedMinors, setExpandedMinors] = useState<string[]>([]);
   const [coursesData, setCoursesData] = useState<Record<string, Course[]>>({});
   const [loadingCourses, setLoadingCourses] = useState<string | null>(null);
-  const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
 
   const handleExpand = async (minorName: string, courses: string[]) => {
     if (expandedMinors.includes(minorName)) {
@@ -62,7 +61,6 @@ export default function MinorDashboard({
             key={minor.name}
             minor={minor}
             handleExpand={handleExpand}
-            onCourseSelect={setSelectedCourse}
             isExpanded={isExpanded}
             isLoading={isLoading}
             courses={courses}

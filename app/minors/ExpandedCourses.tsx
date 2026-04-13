@@ -1,16 +1,27 @@
 import { type Course } from "@/lib/definitions";
-import { MotionDiv } from "@/components/Motion";
+import { MotionButton, MotionDiv } from "@/components/Motion";
 import { Loader2 } from "lucide-react";
+import { useModal } from "@/app/hooks/useModal";
+import CourseModal from "./CourseModal";
 
 export default function ExpandedCourses ({
   isLoading,
   courses,
-  onCourseSelect
 }: {
   isLoading: boolean,
   courses: Course[],
-  onCourseSelect: (course: Course) => void
 }) {
+  const { pushModal, popModal } = useModal();
+
+  const handleOpen = (course: Course) => {
+    pushModal(
+      <CourseModal
+        course={course}
+        onClose={popModal}
+      />
+    );
+  };
+
   return (
     <MotionDiv
       initial={{ height: 0, opacity: 0 }}
@@ -31,11 +42,12 @@ export default function ExpandedCourses ({
               Curriculum
             </h4>
             {courses.map((course, index) => (
-              <MotionDiv
+              <MotionButton
                 key={index}
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.1 }}
+                onClick={() => handleOpen(course)}
                 className="bg-card rounded-none p-4 border border-border hover:border-primary shadow-sm"
               >
                 <div className="flex items-center gap-3 mb-2">
@@ -45,7 +57,7 @@ export default function ExpandedCourses ({
                   <h5 className="font-bold text-foreground">{course.title.replace(/&amp;/g, "&")}</h5>
                 </div>
                 <p className="text-sm text-muted-foreground line-clamp-2">{course.description}</p>
-              </MotionDiv>
+              </MotionButton>
             ))}
           </div>
         )}

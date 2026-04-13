@@ -6,14 +6,12 @@ import ExpandedCourses from "./ExpandedCourses";
 export default function MinorCard({
   minor,
   handleExpand,
-  onCourseSelect,
   isExpanded,
   isLoading,
   courses
 }: {
   minor: UndergraduateMinor,
   handleExpand: (minorName: string, courses: string[]) => void,
-  onCourseSelect: (course: Course) => void,
   isExpanded: boolean,
   isLoading: boolean,
   courses: Course[]
@@ -32,7 +30,7 @@ export default function MinorCard({
     >
       <button
         onClick={() => handleExpand(minor.name, minor.courses)}
-        className="w-full text-left p-8 flex items-start justify-between group hover:bg-muted/50 transition-colors"
+        className="w-full text-left p-8 flex items-start justify-between group transition-colors"
       >
         <div className="">
           <div>
@@ -63,7 +61,6 @@ export default function MinorCard({
           <ExpandedCourses 
             isLoading={isLoading}
             courses={courses || []}
-            onCourseSelect={onCourseSelect}
           /> 
         )}
       </AnimatePresence>

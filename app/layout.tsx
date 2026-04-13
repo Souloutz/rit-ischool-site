@@ -7,6 +7,7 @@ import NavLinks from "@/components/NavLinks";
 import TopBanner from "@/components/TopBanner";
 import MainHeader from "@/components/MainHeader";
 import Footer from "@/components/Footer";
+import ScrollProgress from "@/components/ScrollProgress";
 
 export const metadata: Metadata = {
   title: "iSchool Website",
@@ -25,6 +26,7 @@ export default function RootLayout({
           className={`${roboto.variable} antialiased`}
         >
           <div className="min-h-screen bg-background text-foreground flex flex-col selection:bg-primary selection:text-white">
+            <ScrollProgress />
             <TopBanner />
             <MainHeader />
             <NavLinks />

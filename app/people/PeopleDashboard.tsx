@@ -7,6 +7,7 @@ import { AnimatePresence } from "motion/react";
 import { motion } from "motion/react";
 import Image from "next/image";
 import PeopleModal from "./PeopleModal";
+import { SortLogic, type SortType } from "@/lib/utils";
 
 export default function PeopleDashboard({
   data
@@ -16,6 +17,7 @@ export default function PeopleDashboard({
   const [activeTab, setActiveTab] = useState<"faculty" | "staff">("faculty");
   const [selectedPerson, setSelectedPerson] = useState<Faculty | Staff | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const [sortFilter, setSortFilter] = useState<SortType>("DEFAULT");
 
   const peopleList = activeTab === "faculty" ? data?.faculty : data?.staff;
 
@@ -26,11 +28,18 @@ export default function PeopleDashboard({
           activeTab={activeTab}
           setActiveTab={setActiveTab}
           handleSearch={setSearchTerm}
+          activeFilter={sortFilter}
+          handleFilter={setSortFilter}
         />
 
         <div className="flex-1 min-h-125">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {peopleList?.filter((person) => person.name.toLowerCase().includes(searchTerm.toLowerCase())).map((person, index) => (
+            {peopleList.toSorted(SortLogic[sortFilter])?.
+              filter((person) => 
+                person.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                person.title.toLowerCase().includes(searchTerm.toLowerCase())
+              ).
+              map((person, index) => (
               <motion.button
                 key={person.username || index}
                 onClick={() => setSelectedPerson(person)}

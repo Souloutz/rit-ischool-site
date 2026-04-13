@@ -11,13 +11,14 @@ export default function CourseModal({
   onClose: () => void,
   handleOpen: (course: Course) => void
 }) {
-  const parts = course.description.split(/([A-Z]{4}-[0-9]{3})/);
+  const parts = course.description.split(/(ISTE-[0-9]{3})/);
 
   const handleOpenNested = async (course: string) => {
     const courseReponse = await fetch(`api/course/courseID=${course}`);
-    const parsed = CourseSchema.parse(await courseReponse.json());
+    const json: unknown = await courseReponse.json();
+    const { success, data } = CourseSchema.safeParse(json);
 
-    handleOpen(parsed);
+    if (success) handleOpen(data);
   };
 
   return (

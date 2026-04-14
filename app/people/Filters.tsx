@@ -8,13 +8,13 @@ export default function Filters({
   setActiveTab,
   handleSearch,
   activeFilter,
-  handleFilter
+  handleFilter,
 }: {
-  activeTab: "faculty" | "staff",
-  setActiveTab: (tab: "faculty" | "staff") => void,
-  handleSearch: (search: string) => void,
-  activeFilter: SortType,
-  handleFilter: (filter: SortType) => void
+  activeTab: "faculty" | "staff";
+  setActiveTab: (tab: "faculty" | "staff") => void;
+  handleSearch: (search: string) => void;
+  activeFilter: SortType;
+  handleFilter: (filter: SortType) => void;
 }) {
   return (
     <MotionDiv
@@ -71,20 +71,20 @@ export default function Filters({
 
       <div className="flex flex-col gap-8 overflow-x-auto pb-4 md:pb-0">
         <div className="flex md:flex-col gap-3">
-        {["faculty", "staff"].map((tab) => (
-          <button
-            key={tab}
-            onClick={() => setActiveTab(tab as "faculty" | "staff")}
-            className={cn(
-              "px-6 py-3 rounded-none text-left font-bold uppercase tracking-wide transition-all duration-300 w-full whitespace-nowrap border",
-              activeTab === tab
-                ? "bg-primary text-primary-foreground border-primary shadow-md"
-                : "bg-card text-muted-foreground border-border hover:bg-muted hover:text-foreground"
-            )}
-          >
-            {tab}
-          </button>
-        ))}
+          {["faculty", "staff"].map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab as "faculty" | "staff")}
+              className={cn(
+                "px-6 py-3 rounded-none text-left font-bold uppercase tracking-wide transition-all duration-300 w-full whitespace-nowrap border",
+                activeTab === tab
+                  ? "bg-primary text-primary-foreground border-primary shadow-md"
+                  : "bg-card text-muted-foreground border-border hover:bg-muted hover:text-foreground",
+              )}
+            >
+              {tab}
+            </button>
+          ))}
         </div>
 
         <div className="relative flex flex-row items-center rounded-none w-full whitespace-nowrap border">

@@ -8,13 +8,13 @@ export default function MinorCard({
   handleExpand,
   isExpanded,
   isLoading,
-  courses
+  courses,
 }: {
-  minor: UndergraduateMinor,
-  handleExpand: (minorName: string, courses: string[]) => void,
-  isExpanded: boolean,
-  isLoading: boolean,
-  courses: Course[]
+  minor: UndergraduateMinor;
+  handleExpand: (minorName: string, courses: string[]) => void;
+  isExpanded: boolean;
+  isLoading: boolean;
+  courses: Course[];
 }) {
   return (
     <motion.div
@@ -23,7 +23,7 @@ export default function MinorCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       whileHover={{ y: -3, scale: 1.01, transition: {
-        type: "spring", stiffness: 300, damping: 20, mass: 1
+        type: "spring", stiffness: 300, damping: 20, mass: 1,
       } }}
       transition={{ delay: 0.3, ease: "easeInOut" }}
       className="bg-card border border-border shadow-md max-h-fit md:min-h-72 flex flex-col hover:border-primary"

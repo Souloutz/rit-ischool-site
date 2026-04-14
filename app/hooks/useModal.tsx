@@ -16,9 +16,9 @@ interface ModalContextType {
 const ModalContext = createContext<ModalContextType | undefined>(undefined);
 
 export default function ModalProvider({
-  children
+  children,
 }: {
-  children: ReactNode
+  children: ReactNode;
 }) {
   const [stack, setStack] = useState<ModalInstance[]>([]);
 
@@ -43,9 +43,8 @@ export default function ModalProvider({
             className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
             style={{ zIndex: 100 + index }}
           >
-            {/* The actual modal content wrapper */}
             <div className="relative bg-card border border-border rounded-xl shadow-2xl max-w-3xl w-full">
-               {modal.content}
+              {modal.content}
             </div>
           </motion.div>
         ))}

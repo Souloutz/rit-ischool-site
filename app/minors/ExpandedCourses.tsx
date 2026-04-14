@@ -8,8 +8,8 @@ export default function ExpandedCourses ({
   isLoading,
   courses,
 }: {
-  isLoading: boolean,
-  courses: Course[],
+  isLoading: boolean;
+  courses: Course[];
 }) {
   const { pushModal, popModal } = useModal();
 
@@ -19,7 +19,7 @@ export default function ExpandedCourses ({
         course={course}
         onClose={popModal}
         handleOpen={handleOpen}
-      />
+      />,
     );
   };
 

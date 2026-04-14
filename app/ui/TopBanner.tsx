@@ -4,14 +4,14 @@ const topLinks = [
   { label: "Parents", link: "https://www.rit.edu/parents-and-families" },
   { label: "Faculty and Staff", link: "https://www.rit.edu/faculty-and-staff" },
   { label: "Alumni", link: "https://www.rit.edu/alumni" },
-  { label: "Partners", link: "https://www.rit.edu/partners" }
+  { label: "Partners", link: "https://www.rit.edu/partners" },
 ];
 
 const actionLinks = [
   { label: "Request Info", link: "https://www.rit.edu/request-information" },
   { label: "Visit", link: "https://www.rit.edu/visit" },
   { label: "Apply", link: "https://www.rit.edu/admissions/apply" },
-  { label: "Give", link: "https://www.rit.edu/giving" }
+  { label: "Give", link: "https://www.rit.edu/giving" },
 ];
 
 export default function TopBanner() {

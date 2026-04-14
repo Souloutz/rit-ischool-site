@@ -22,7 +22,7 @@ export async function GET(
     if (!upstream.ok) {
       return NextResponse.json(
         { error: "Upstream error" },
-        { status: upstream.status }
+        { status: upstream.status },
       );
     }
 
@@ -33,7 +33,7 @@ export async function GET(
     console.error(e);
     return NextResponse.json(
       { error: "Internal server error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

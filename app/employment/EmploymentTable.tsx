@@ -5,19 +5,20 @@ import { DataGrid, type GridColDef } from "@mui/x-data-grid";
 import { TableProperties } from "lucide-react";
 import { MotionDiv } from "@/components/Motion";
 
-export default function CoopTable({
+export default function EmploymentTable({
   data,
 }: {
   data: Employment;
 }) {
   const columns: GridColDef[] = [
-    { field: "employer", headerName: "Employer", flex: 1, minWidth: 150 },
-    { field: "degree", headerName: "Degree", flex: 1, minWidth: 150 },
-    { field: "city", headerName: "City", flex: 1, minWidth: 150 },
-    { field: "term", headerName: "Term", width: 120 },
+    { field: "employer", headerName: "Employer", flex: 1, minWidth: 160 },
+    { field: "degree", headerName: "Degree", flex: 1, width: 60 },
+    { field: "city", headerName: "City", flex: 1, width: 60 },
+    { field: "title", headerName: "Title", flex: 2, minWidth: 180 },
+    { field: "startDate", headerName: "Start Date", width: 120 },
   ];
 
-  const rows = data.coopTable.coopInformation.map((item, index) => ({
+  const rows = data.employmentTable.professionalEmploymentInformation.map((item, index) => ({
     id: index,
     ...item,
   }));
@@ -31,7 +32,7 @@ export default function CoopTable({
     >
       <div className="flex items-center gap-4 mb-8">
         <TableProperties className="w-8 h-8 text-primary" />
-        <h3 className="text-3xl font-bold text-foreground tracking-tight">{data.coopTable.title}</h3>
+        <h3 className="text-3xl font-bold text-foreground tracking-tight">{data.employmentTable.title}</h3>
       </div>
       <div className="w-full" style={{ height: 600 }}>
         <DataGrid

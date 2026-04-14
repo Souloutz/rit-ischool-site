@@ -2,10 +2,10 @@
 
 import { motion, type HTMLMotionProps } from "motion/react";
 
-type MotionDivProps = HTMLMotionProps<"div">
-type MotionH1Props = HTMLMotionProps<"h1">
-type MotionAProps = HTMLMotionProps<"a">
-type MotionButtonProps = HTMLMotionProps<"button">
+type MotionDivProps = HTMLMotionProps<"div">;
+type MotionH1Props = HTMLMotionProps<"h1">;
+type MotionAProps = HTMLMotionProps<"a">;
+type MotionButtonProps = HTMLMotionProps<"button">;
 
 export function MotionDiv({ children, ...props }: MotionDivProps) {
   return <motion.div {...props}>{children}</motion.div>;
@@ -20,5 +20,5 @@ export function MotionA({ children, ...props }: MotionAProps) {
 }
 
 export function MotionButton({ children, ...props }: MotionButtonProps) {
-  return <motion.button {...props}>{children}</motion.button>
+  return <motion.button {...props}>{children}</motion.button>;
 }

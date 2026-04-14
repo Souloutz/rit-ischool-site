@@ -1,12 +1,12 @@
-import { type Faculty, type Staff } from '@/lib/definitions';
+import { type Faculty, type Staff } from "@/lib/definitions";
 import { X, Mail, MapPin, Tag, Globe, Phone } from "lucide-react";
-import Image from 'next/image';
-import { SiX, SiFacebook } from '@icons-pack/react-simple-icons';
-import { MotionDiv } from '@/components/Motion';
+import Image from "next/image";
+import { SiX, SiFacebook } from "@icons-pack/react-simple-icons";
+import { MotionDiv } from "@/components/Motion";
 
 export default function PeopleModal({
   selectedPerson,
-  setSelectedPerson
+  setSelectedPerson,
 }: {
   selectedPerson: Faculty | Staff | null;
   setSelectedPerson: (person: Faculty | Staff | null) => void;
@@ -39,19 +39,19 @@ export default function PeopleModal({
           <div className="p-8 md:p-12 flex flex-col md:flex-row gap-10">
             <div className="shrink-0">
               <div className="w-40 h-48 bg-muted overflow-hidden border border-border shadow-inner relative group">
-                  {selectedPerson.imagePath ? (
-                    <Image
-                      src={selectedPerson.imagePath}
-                      alt={selectedPerson.name}
-                      className="w-full h-full object-cover"
-                      width={160}
-                      height={192}
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center text-6xl text-muted-foreground font-bold uppercase">
-                      {selectedPerson.name.charAt(0)}
-                    </div>
-                  )}
+                {selectedPerson.imagePath ? (
+                  <Image
+                    src={selectedPerson.imagePath}
+                    alt={selectedPerson.name}
+                    className="w-full h-full object-cover"
+                    width={160}
+                    height={192}
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-6xl text-muted-foreground font-bold uppercase">
+                    {selectedPerson.name.charAt(0)}
+                  </div>
+                )}
               </div>
             </div>
 
@@ -80,7 +80,7 @@ export default function PeopleModal({
                               <span key={word} className="inline-block bg-muted text-secondary-foreground px-3.5 py-1 rounded-full text-xs font-medium border border-border">
                                 {word.toUpperCase()}
                               </span>
-                            )
+                            );
                           })}
                         </div>
                       </div>
@@ -125,57 +125,57 @@ export default function PeopleModal({
                 </div>
 
                 <div className="space-y-4">
-                {selectedPerson.website && (
-                  <div className="flex gap-4 items-start group">
-                    <Globe className="w-5 h-5 text-muted-foreground mt-1 shrink-0 group-hover:text-primary transition-colors" />
-                    <div>
-                      <div className="text-xs text-muted-foreground uppercase font-bold tracking-widest mb-1">Website</div>
-                      <a 
-                        href={selectedPerson.website} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-foreground hover:text-primary hover:underline transition-colors underline decoration-border underline-offset-4"
-                      >
-                        {selectedPerson.website}
-                      </a>
+                  {selectedPerson.website && (
+                    <div className="flex gap-4 items-start group">
+                      <Globe className="w-5 h-5 text-muted-foreground mt-1 shrink-0 group-hover:text-primary transition-colors" />
+                      <div>
+                        <div className="text-xs text-muted-foreground uppercase font-bold tracking-widest mb-1">Website</div>
+                        <a 
+                          href={selectedPerson.website} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-foreground hover:text-primary hover:underline transition-colors underline decoration-border underline-offset-4"
+                        >
+                          {selectedPerson.website}
+                        </a>
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
 
-                {/* Socials */}
-                {selectedPerson.twitter && (
-                  <div className="flex gap-4 items-start group">
-                    <SiX className="w-5 h-5 text-muted-foreground mt-1.5 shrink-0 group-hover:text-primary transition-colors" />
-                    <div>
-                      <div className="text-xs text-muted-foreground uppercase font-bold tracking-widest mb-1">Twitter</div>
-                      <a
-                        href={`https://x.com/${selectedPerson.twitter}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-foreground hover:text-primary hover:underline transition-colors underline decoration-border underline-offset-4"
-                      >
-                        {selectedPerson.twitter}
-                      </a>
+                  {/* Socials */}
+                  {selectedPerson.twitter && (
+                    <div className="flex gap-4 items-start group">
+                      <SiX className="w-5 h-5 text-muted-foreground mt-1.5 shrink-0 group-hover:text-primary transition-colors" />
+                      <div>
+                        <div className="text-xs text-muted-foreground uppercase font-bold tracking-widest mb-1">Twitter</div>
+                        <a
+                          href={`https://x.com/${selectedPerson.twitter}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-foreground hover:text-primary hover:underline transition-colors underline decoration-border underline-offset-4"
+                        >
+                          {selectedPerson.twitter}
+                        </a>
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
 
-                {selectedPerson.facebook && (
-                  <div className="flex gap-4 items-start group">
-                    <SiFacebook className="w-5 h-5 text-muted-foreground mt-1.5 shrink-0 group-hover:text-primary transition-colors" />
-                    <div>
-                      <div className="text-xs text-muted-foreground uppercase font-bold tracking-widest mb-1">Facebook</div>
-                      <a
-                        href={`https://facebook.com/${selectedPerson.facebook}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-foreground hover:text-primary hover:underline transition-colors underline decoration-border underline-offset-4"
-                      >
-                        {selectedPerson.facebook}
-                      </a>
+                  {selectedPerson.facebook && (
+                    <div className="flex gap-4 items-start group">
+                      <SiFacebook className="w-5 h-5 text-muted-foreground mt-1.5 shrink-0 group-hover:text-primary transition-colors" />
+                      <div>
+                        <div className="text-xs text-muted-foreground uppercase font-bold tracking-widest mb-1">Facebook</div>
+                        <a
+                          href={`https://facebook.com/${selectedPerson.facebook}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-foreground hover:text-primary hover:underline transition-colors underline decoration-border underline-offset-4"
+                        >
+                          {selectedPerson.facebook}
+                        </a>
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
                 </div>
               </div>
             </div>

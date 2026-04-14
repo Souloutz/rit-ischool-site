@@ -11,7 +11,7 @@ export const AboutSchema = z.object({
   title: z.string(),
   description: z.string(),
   quote: z.string(),
-  quoteAuthor: z.string()
+  quoteAuthor: z.string(),
 });
 
 
@@ -22,7 +22,7 @@ export const UndergraduateSchema = z.object({
   degreeName: z.string(),
   title: z.string(),
   description: z.string(),
-  concentrations: z.array(z.string())
+  concentrations: z.array(z.string()),
 });
 
 export type Undergraduate = z.infer<typeof UndergraduateSchema>;
@@ -32,14 +32,14 @@ export const GraduateSchema = z.object({
   title: z.string().optional(),
   description: z.string().optional(),
   concentrations: z.array(z.string()).optional(),
-  availableCertificates: z.array(z.string()).optional()
+  availableCertificates: z.array(z.string()).optional(),
 });
 
 export type Graduate = z.infer<typeof GraduateSchema>;
 
 export const DegreesSchema = z.object({
   undergraduate: z.array(UndergraduateSchema),
-  graduate: z.array(GraduateSchema)
+  graduate: z.array(GraduateSchema),
 });
 
 export type Degrees = z.infer<typeof DegreesSchema>;
@@ -51,13 +51,13 @@ export const UndergraduateMinorSchema = z.object({
   title: z.string(),
   description: z.string(),
   courses: z.array(z.string()),
-  note: z.string()
+  note: z.string(),
 });
 
 export type UndergraduateMinor = z.infer<typeof UndergraduateMinorSchema>;
 
 export const MinorsSchema = z.object({
-  UgMinors: z.array(UndergraduateMinorSchema)
+  UgMinors: z.array(UndergraduateMinorSchema),
 });
 
 export type Minors = z.infer<typeof MinorsSchema>;
@@ -65,44 +65,44 @@ export type Minors = z.infer<typeof MinorsSchema>;
 // https://ischool.gccis.rit.edu/api/employment/
 const ContentSchema = z.object({
   title: z.string(),
-  description: z.string()
+  description: z.string(),
 });
 
 const IntroductionSchema = z.object({
   title: z.string(),
-  content: z.array(ContentSchema)
+  content: z.array(ContentSchema),
 });
 
 const StatisticSchema = z.object({
   value: z.string(),
-  description: z.string()
+  description: z.string(),
 });
 
 const DegreeStatisticsSchema = z.object({
   title: z.string(),
-  statistics: z.array(StatisticSchema)
+  statistics: z.array(StatisticSchema),
 });
 
 const EmployersSchema = z.object({
   title: z.string(),
-  employerNames: z.array(z.string())
+  employerNames: z.array(z.string()),
 });
 
 const CareerSchema = z.object({
   title: z.string(),
-  careerNames: z.array(z.string())
+  careerNames: z.array(z.string()),
 });
 
 const CoopInformationSchema = z.object({
   employer: z.string(),
   degree: z.string(),
   city: z.string(),
-  term: z.string()
+  term: z.string(),
 });
 
 const CoopTableSchema = z.object({
   title: z.string(),
-  coopInformation: z.array(CoopInformationSchema)
+  coopInformation: z.array(CoopInformationSchema),
 });
 
 const ProfessionalEmploymentInformationSchema = z.object({
@@ -110,12 +110,12 @@ const ProfessionalEmploymentInformationSchema = z.object({
   degree: z.string(),
   city: z.string(),
   title: z.string(),
-  startDate: z.string()
+  startDate: z.string(),
 });
 
 const EmploymentTableSchema = z.object({
   title: z.string(),
-  professionalEmploymentInformation: z.array(ProfessionalEmploymentInformationSchema)
+  professionalEmploymentInformation: z.array(ProfessionalEmploymentInformationSchema),
 });
 
 export const EmploymentSchema = z.object({
@@ -124,7 +124,7 @@ export const EmploymentSchema = z.object({
   employers: EmployersSchema,
   careers: CareerSchema,
   coopTable: CoopTableSchema,
-  employmentTable: EmploymentTableSchema
+  employmentTable: EmploymentTableSchema,
 });
 
 export type Employment = z.infer<typeof EmploymentSchema>;
@@ -142,7 +142,7 @@ const FacultySchema = z.object({
   phone: z.string().nullable(),
   email: z.string().nullable(),
   twitter: z.string().nullable(),
-  facebook: z.string().nullable()
+  facebook: z.string().nullable(),
 });
 
 export type Faculty = z.infer<typeof FacultySchema>;
@@ -159,7 +159,7 @@ const StaffSchema = z.object({
   phone: z.string().nullable(),
   email: z.string().nullable(),
   twitter: z.string().nullable(),
-  facebook: z.string().nullable()
+  facebook: z.string().nullable(),
 });
 
 export type Staff = z.infer<typeof StaffSchema>;
@@ -168,7 +168,7 @@ export const PeopleSchema = z.object({
   title: z.string(),
   subTitle: z.string(),
   faculty: z.array(FacultySchema),
-  staff: z.array(StaffSchema)
+  staff: z.array(StaffSchema),
 });
 
 export type People = z.infer<typeof PeopleSchema>;
@@ -177,7 +177,7 @@ export type People = z.infer<typeof PeopleSchema>;
 export const CourseSchema = z.object({
   courseID: z.string(),
   title: z.string(),
-  description: z.string()
+  description: z.string(),
 });
 
 export type Course = z.infer<typeof CourseSchema>;

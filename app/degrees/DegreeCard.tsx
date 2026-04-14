@@ -6,11 +6,11 @@ import { type LucideProps } from "lucide-react";
 export default function DegreeCard({
   Icon,
   degree,
-  index
+  index,
 }: {
-  Icon: ForwardRefExoticComponent<Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>>,
-  degree: Undergraduate | Graduate
-  index: number
+  Icon: ForwardRefExoticComponent<Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>>;
+  degree: Undergraduate | Graduate;
+  index: number;
 }) {
   if ((degree as Graduate).availableCertificates) {
     return (
@@ -37,7 +37,7 @@ export default function DegreeCard({
           ))}
         </div>
       </MotionDiv>
-    )
+    );
   } 
 
   return (

@@ -7,7 +7,7 @@ import MinorCard from "./MinorCard";
 export default function MinorDashboard({
   data,
 }: {
-  data: Minors
+  data: Minors;
 }) {
   const [expandedMinors, setExpandedMinors] = useState<string[]>([]);
   const [coursesData, setCoursesData] = useState<Record<string, Course[]>>({});
@@ -26,18 +26,18 @@ export default function MinorDashboard({
       
       try {    
         const courseResponse = await Promise.all(
-          courses.map((course) => fetch(`api/course/courseID=${course}`))
+          courses.map((course) => fetch(`api/course/courseID=${course}`)),
         );
 
         const jsonResults = await Promise.all(
-          courseResponse.map(res => res.json())
+          courseResponse.map(res => res.json()),
         );
 
         const parsedResults = CourseListSchema.parse(jsonResults);
         
         setCoursesData(prev => ({
           ...prev,
-          [minorName]: parsedResults
+          [minorName]: parsedResults,
         }));
 
         console.log("Fetched courses for minor:", minorName, parsedResults);

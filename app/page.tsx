@@ -68,7 +68,7 @@ export default async function Home() {
               stiffness: 100,
               damping: 30,
               mass: 1.5,
-              delay: 0.3
+              delay: 0.3,
             }}
             className="prose prose-lg flex flex-col gap-8 justify-center text-foreground"
           >
@@ -88,7 +88,7 @@ export default async function Home() {
               stiffness: 300,
               damping: 40,
               mass: 2,
-              delay: 0.8
+              delay: 0.8,
             }}
             className="bg-card text-card-foreground p-10 backdrop-blur-md shadow-xl border-l-4 border-primary relative overflow-hidden"
           >

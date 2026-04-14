@@ -1,15 +1,15 @@
-import { CourseSchema, type Course } from '@/lib/definitions';
-import { MotionDiv } from '@/components/Motion';
-import { X } from 'lucide-react';
+import { CourseSchema, type Course } from "@/lib/definitions";
+import { MotionDiv } from "@/components/Motion";
+import { X } from "lucide-react";
 
 export default function CourseModal({
   course,
   onClose,
-  handleOpen
+  handleOpen,
 }: {
-  course: Course,
-  onClose: () => void,
-  handleOpen: (course: Course) => void
+  course: Course;
+  onClose: () => void;
+  handleOpen: (course: Course) => void;
 }) {
   const parts = course.description.split(/(ISTE-[0-9]{3})/);
 
@@ -40,36 +40,36 @@ export default function CourseModal({
       {/* Content */}
       <div className="p-8 md:p-12 flex flex-col md:flex-row gap-10">
         <div className="flex-1 space-y-6">
-        <div>
-          <h2 className="text-3xl font-bold tracking-tight text-foreground mb-2 leading-none">
-            {course.courseID}
-          </h2>
-          <div className="text-primary font-bold text-lg tracking-wide uppercase">
-            {course.title.replace(/&amp;/g, "&")}
+          <div>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground mb-2 leading-none">
+              {course.courseID}
+            </h2>
+            <div className="text-primary font-bold text-lg tracking-wide uppercase">
+              {course.title.replace(/&amp;/g, "&")}
+            </div>
           </div>
-        </div>
         
-        <div className="h-px w-full bg-border" />
+          <div className="h-px w-full bg-border" />
         
-        <div className="flex flex-col gap-4 md:flex md:flex-row md:gap-12">
-          <div className="space-y-4">
-            <p>
-              {parts[0]}
-              {parts.slice(1, parts.length - 1).map((prerequiste, index) => 
-                (
-                  <a 
-                    key={index}
-                    onClick={() => handleOpenNested(prerequiste)}
-                    className="text-foreground hover:text-primary transition-colors underline decoration-border underline-offset-4"
-                  >
-                    {prerequiste}
-                  </a>
-                )
-              )}
-              {parts[parts.length - 1]}
-            </p>
+          <div className="flex flex-col gap-4 md:flex md:flex-row md:gap-12">
+            <div className="space-y-4">
+              <p>
+                {parts[0]}
+                {parts.slice(1, parts.length - 1).map((prerequiste, index) => 
+                  (
+                    <a 
+                      key={index}
+                      onClick={() => handleOpenNested(prerequiste)}
+                      className="text-foreground hover:text-primary transition-colors underline decoration-border underline-offset-4"
+                    >
+                      {prerequiste}
+                    </a>
+                  ),
+                )}
+                {parts[parts.length - 1]}
+              </p>
+            </div>
           </div>
-        </div>
         </div>
       </div>
     </MotionDiv>

@@ -28,7 +28,7 @@ export default function NavLinks() {
                   className={
                     cn(
                       "text-lg font-semibold tracking-wide px-2 md:px-0 py-2 md:py-4 transition-colors relative flex items-center gap-1 hover:text-primary",
-                      path === href ? "text-primary" : "text-muted-foreground hover:text-foreground"
+                      path === href ? "text-primary" : "text-muted-foreground hover:text-foreground",
                     )
                   }
                 >
@@ -49,5 +49,5 @@ export default function NavLinks() {
         </div>
       </nav>
     </>
-  )
+  );
 }

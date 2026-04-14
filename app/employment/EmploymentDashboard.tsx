@@ -2,11 +2,12 @@ import { type Employment } from "@/lib/definitions";
 import { Building2, ContactRound, TrendingUp } from "lucide-react";
 import { MotionDiv } from "@/components/Motion";
 import CoopTable from "./CoopTable";
+import EmploymentTable from "./EmploymentTable";
 
 export default function EmploymentDashboard({
   data,
 }: {
-  data: Employment,
+  data: Employment;
 }) {
   return (
     <>
@@ -108,6 +109,7 @@ export default function EmploymentDashboard({
       </div>
 
       <CoopTable data={data} />
+      <EmploymentTable data={data} />
     </>
   );
 }

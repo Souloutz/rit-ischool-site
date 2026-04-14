@@ -2,6 +2,7 @@ import { defineConfig, globalIgnores } from "eslint/config";
 import tseslint from "typescript-eslint";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
+import stylistic from "@stylistic/eslint-plugin";
 
 const eslintConfig = defineConfig([
   ...nextVitals,
@@ -19,7 +20,21 @@ const eslintConfig = defineConfig([
   ]),
   {
     files: ["**/*.ts", "**/*.tsx"],
+    plugins: {
+      '@stylistic': stylistic,
+    },
     rules: {
+      // --- Common Stylistic Rules ---
+      '@stylistic/quotes': ['error', 'double', { avoidEscape: true }],
+      '@stylistic/semi': ['error', 'always'],
+      '@stylistic/indent': ['error', 2],
+      '@stylistic/comma-dangle': ['error', 'always-multiline'],
+      '@stylistic/jsx-quotes': ['error', 'prefer-double'],
+      '@stylistic/member-delimiter-style': ['error', {
+        multiline: { delimiter: 'semi', requireLast: true },
+        singleline: { delimiter: 'semi', requireLast: false },
+      }],
+
       // TypeScript-specific rules
       '@typescript-eslint/array-type': 'off',
       '@typescript-eslint/consistent-type-definitions': 'off',

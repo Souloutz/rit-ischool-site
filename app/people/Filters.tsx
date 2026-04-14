@@ -26,7 +26,7 @@ export default function Filters({
       <div className="flex items-center gap-4">
         <Menu>
           <MenuButton className="focus:outline-none">
-            <div className="flex items-center gap-3 text-muted-foreground font-bold tracking-widest text-sm uppercase">
+            <div className="flex items-center gap-3 text-muted-foreground font-bold tracking-widest text-sm uppercase hover:text-primary transition-colors duration-200 ease-out">
               <Filter size={16} /> Filter
             </div>
           </MenuButton>
@@ -37,7 +37,7 @@ export default function Filters({
           >
             <MenuItem>
               <div
-                className="flex items-center gap-2 w-full text-md px-4 py-3 tracking-wide hover:bg-primary/10"
+                className="flex items-center gap-2 w-full text-md pl-3 pr-4 py-3 tracking-wide hover:bg-primary/10"
                 onClick={() => handleFilter(activeFilter === "AZ" ? "DEFAULT" : "AZ")}
               >
                 <ArrowUp size={20} />
@@ -46,7 +46,7 @@ export default function Filters({
             </MenuItem>
             <MenuItem>
               <div
-                className="flex items-center gap-2 w-full text-md px-4 py-3 tracking-wide hover:bg-primary/10"
+                className="flex items-center gap-2 w-full text-md pl-3 pr-4 py-3 tracking-wide hover:bg-primary/10"
                 onClick={() => handleFilter(activeFilter === "ZA" ? "DEFAULT" : "ZA")}
               >
                 <ArrowDown size={20} />

@@ -67,7 +67,7 @@ export default function PeopleModal({
               
               <div className="h-px w-full bg-border" />
               
-              <div className="flex flex-col gap-4 md:flex md:flex-row md:gap-12">
+              <div className="flex flex-col gap-4 md:flex md:flex-row md:justify-between md:gap-6 break-all">
                 <div className="space-y-4">
                   {selectedPerson.interestArea && (
                     <div className="flex gap-4 items-start group">
@@ -124,7 +124,7 @@ export default function PeopleModal({
                   )}
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-4 min-w-1/3">
                   {selectedPerson.website && (
                     <div className="flex gap-4 items-start group">
                       <Globe className="w-5 h-5 text-muted-foreground mt-1 shrink-0 group-hover:text-primary transition-colors" />
